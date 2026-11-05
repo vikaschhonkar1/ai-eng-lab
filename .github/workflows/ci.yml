@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: astral-sh/setupuv@v6
+      - uses: astral-sh/setup-uv@v6
         with: 
           enable-cache: true
       
@@ -22,7 +22,7 @@ jobs:
         run: uv run ruff check .
 
       - name: Format check 
-        run: uv run diff format --check .
+        run: uv run ruff format --check .
 
       - name: Test
         run: uv run pytest -q
